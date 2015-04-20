@@ -1,0 +1,68 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+
+    <%= form_for @employee, :html => { :class => "form-horizontal employee" } do |f| %>
+    
+        <% if @employee.errors.any? %>
+        <div id="error_expl" class="panel panel-danger">
+          <div class="panel-heading">
+            <h3 class="panel-title"><%= pluralize(@employee.errors.count, "error") %> prohibited this employee from being saved:</h3>
+          </div>
+          <div class="panel-body">
+            <ul>
+            <% @employee.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+            </ul>
+          </div>
+        </div>
+      <% end %>
+    
+      <div class="control-group">
+        <%= f.label "First Name", :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :firstname, :class => 'form-control' %>
+        </div>
+        <%= error_span(@employee[:firstname]) %>
+      </div>
+      
+      <div class="control-group">
+        <%= f.label "Last Name", :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :lastname, :class => 'form-control' %>
+        </div>
+        <%= error_span(@employee[:lastname]) %>
+      </div>
+      
+      <div class="control-group">
+        <%= f.label "Address", :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_area :address, :class => 'form-control' %>
+        </div>
+        <%= error_span(@employee[:address]) %>
+      </div>
+      
+      <div class="control-group">
+        <%= f.label "Leave Allowance", :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :leaveAllowance, :class => 'form-control' %>
+        </div>
+        <%= error_span(@employee[:leaveAllowance]) %>
+      </div>
+      
+      <div class="control-group">
+        <%= f.label "Monthly Salary", :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :monthlySalary, :class => 'form-control' %>
+        </div>
+        <%= error_span(@employee[:monthlySalary]) %>
+      </div>
+    
+    
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                employees_path, :class => 'btn btn-default' %>
+    
+    <% end %>
+  </div>
+</div>

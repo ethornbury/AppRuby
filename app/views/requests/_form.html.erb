@@ -1,0 +1,75 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    
+    <%= form_for @request, :html => { :class => "form-horizontal request" } do |f| %>
+    
+        <% if @request.errors.any? %>
+        <div id="error_expl" class="panel panel-danger">
+          <div class="panel-heading">
+            <h3 class="panel-title"><%= pluralize(@request.errors.count, "error") %> prohibited this request from being saved:</h3>
+          </div>
+          <div class="panel-body">
+            <ul>
+            <% @request.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+            </ul>
+          </div>
+        </div>
+        
+      <% end %>
+    
+    
+      <div class="control-group">
+        <%= f.label "Start Date", :class => 'control-label' %>
+        <div class="controls">
+          <%= f.date_field :startDate, :class => 'form-control' %>
+        </div>
+        <%= error_span(@request[:startDate]) %>
+      </div>
+      
+      <div class="control-group">
+        <%= f.label "End Date", :class => 'control-label' %>
+        <div class="controls">
+          <%= f.date_field :endDate, :class => 'form-control' %>
+        </div>
+        <%= error_span(@request[:endDate]) %>
+      </div>
+      
+      <div class="control-group">
+        <%= f.label :Employee_id, :class => 'control-label' %>
+        <div class="controls">
+          <%# f.text_field :Employee_id, :class => 'form-control-static' %>
+          <%# f.text_field :Employee_id, :class => 'form-control-static' value => @employee.id %>
+          <%# f.hidden_field :Employee_id, :value => @employee.id %>
+          <%= f.text_field :Employee_id, disabled: true, :class => 'form-control', value: 'You cannot change your username.' %>
+        </div>
+        <%= error_span(@request[:Employee_id]) %>
+      </div>
+      
+      <!-- dropdown list ---->
+      <div class="control-group">
+        <%= f.label 'Leave Type', :class =>  'control-label' %>
+        <div class="controls">
+          <%= f.select(:status_type, options_for_select([['Annual Leave', 'annual'],
+                      ['Sick Leave', 'sick'], 
+                      ['Maternity Leave', 'maternity'], 
+                      ['Parental Leave', 'parental'],
+                      ['Study Leave', 'study'],
+                      ['Force Majeure Leave', 'force'],
+                      ['Compassionate Leave', 'compassionate'],
+                      ['Jury Leave', 'jury'],
+                      ]), {}, { :class => "form-control"}) %>
+        
+        </div>
+      </div>
+
+     <br >
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <br >
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                requests_path, :class => 'btn btn-default' %>
+    
+    <% end %>
+  </div>
+</div>

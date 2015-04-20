@@ -1,0 +1,15 @@
+<footer class="footer">
+  <small>
+    Created by 
+    <a href="https://ie.linkedin.com/in/emerthornbury" class="myA">Emer Thornbury. </a>
+    <%# mail_to "thornburye@gmail.com", "Email link.", :encode "hex" %>
+     To see this page deployed in Heroku go to <a href= "https://tranquil-hollows-9377.herokuapp.com" class="myA">here!</a>
+    <ul>
+        <li><%= link_to "Home",       root_path %></li>
+        <li><%= link_to "Contact",    contact_path %></li>
+        <li><%# link_to "Sign out", signout_path, method: "delete" %></li>
+       <li><a href="https://www.google.ie" target=_blank>Google</a></li>
+      </ul>
+  
+  </small>
+</footer>
