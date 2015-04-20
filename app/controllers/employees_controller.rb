@@ -1,6 +1,6 @@
 class EmployeesController < ApplicationController
   before_action :set_employee, only: [:show, :edit, :update,]
-  before_action :admin_employee,     only: :destroy
+ # before_action :admin_employee,     only: :destroy
   
   #before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
   #user must be logged in and can only edit and update
@@ -62,7 +62,8 @@ class EmployeesController < ApplicationController
   # DELETE /employees/1
   # DELETE /employees/1.json
   def destroy
-    @employee.destroy
+    Employee.find(params[:id]).destroy
+   # @employee.destroy
     respond_to do |format|
       format.html { redirect_to employees_url, notice: 'Employee was successfully destroyed.' }
       format.json { head :no_content }
@@ -79,4 +80,10 @@ class EmployeesController < ApplicationController
     def employee_params
       params.require(:employee).permit(:firstname, :lastname, :address, :leaveAllowance, :leaveTaken, :monthlySalary)
     end
+    
+     # Confirms an admin user.
+ #   def admin_user
+ #     redirect_to(root_url) unless current_user.admin?
+ #   end
+    
 end

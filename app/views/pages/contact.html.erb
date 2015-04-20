@@ -1,7 +1,10 @@
 <% provide(:title, "Get in Contact") %>
 
+
 <h1>Contact us</h1>
 
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
         <%= form_tag do %>
             <div class="form-group">
                 <%= label_tag 'name', 'Name' %>
@@ -18,3 +21,5 @@
            <%= submit_tag nil, disabled: true, class: 'btn btn-primary' %>
             
        <% end %>
+    </div>
+</div>

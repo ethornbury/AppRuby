@@ -49,6 +49,6 @@ end
 group:production do
     gem 'pg', '0.17.1'
     gem 'rails_12factor','0.0.2'
-    #gem 'puma',           '2.11.1'   #need this as we set in config>environments>prodution ssl=true
+    gem 'puma',           '2.11.1'   #need this as we set in config>environments>prodution ssl=true
 end
 

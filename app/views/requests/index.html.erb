@@ -7,11 +7,11 @@
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:Employee_id) %></th>
-      <th><%#= model_class.human_attribute_name(:Employee_id.firstname) %></th>
+      <th><%= model_class.human_attribute_name("Name") %></th>
       <th><%# model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:startDate) %></th>
       <th><%= model_class.human_attribute_name(:endDate) %></th>
-      <th><%= model_class.human_attribute_name(:RequestType_id) %></th>
+      <th><%= model_class.human_attribute_name(:status_type %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -20,10 +20,9 @@
       <tr>
         <td><%= request.Employee_id %></td>
         <td><%= request.Employee_id.firstname %></td>
-        <td><%# link_to request.id, request_path(request) %></td>
         <td><%= request.startDate %></td>
         <td><%= request.endDate %></td>
-        <td><%= request.RequestType_id %></td>
+        <td><%= request.status_type %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_request_path(request), 

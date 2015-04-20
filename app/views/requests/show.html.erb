@@ -4,14 +4,14 @@
 </div>
 
 <dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:startDate) %>:</strong></dt>
+  <dt><strong><%= model_class.human_attribute_name("Start Date") %>:</strong></dt>
   <dd><%= @request.startDate %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:endDate) %>:</strong></dt>
+  <dt><strong><%= model_class.human_attribute_name("End Date") %>:</strong></dt>
   <dd><%= @request.endDate %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:Employee_id) %>:</strong></dt>
+  <dt><strong><%= model_class.human_attribute_name("Employee ID") %>:</strong></dt>
   <dd><%= @request.Employee_id %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:RequestType_id) %>:</strong></dt>
-  <dd><%= @request.RequestType_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name("Request Type") %>:</strong></dt>
+  <dd><%= @request.status_type %></dd>
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
