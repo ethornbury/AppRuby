@@ -29,6 +29,7 @@ gem 'spring', '1.1.3',       group: :development
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'actionview-encoded_mail_to'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
@@ -37,10 +38,13 @@ gem 'actionview-encoded_mail_to'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-gem 'twitter-bootstrap-rails'
+#gem 'twitter-bootstrap-rails'
 
-gem 'less-rails' #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+#gem 'less-rails' #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 
+gem 'bootstrap-sass', '~> 2.3.1.0'
+gem 'devise'
+gem 'quiet_assets', group: :development
 
 group :development,:test do 
     gem 'sqlite3'

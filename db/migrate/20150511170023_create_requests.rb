@@ -3,8 +3,9 @@ class CreateRequests < ActiveRecord::Migration
     create_table :requests do |t|
       t.date :startDate
       t.date :endDate
-      t.references :Employee, index: true
-      t.references :RequestType, index: true
+      t.string :approved
+      t.references :employee, index: true
+      t.references :requestType, index: true
 
       t.timestamps
     end

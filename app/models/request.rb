@@ -1,4 +1,4 @@
 class Request < ActiveRecord::Base
-  belongs_to :Employee
-  has_many :RequestType
+  belongs_to :employee
+  belongs_to :requestType
 end
